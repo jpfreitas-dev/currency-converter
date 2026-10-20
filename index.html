@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="styles.css" />
 
-    <title>Convert</title>
+    <title>Conversor de Moedas</title>
   </head>
   <body>
     <img src="./img/logo.svg" alt="Convert logo" />
@@ -22,22 +22,59 @@
     <main>
       <form>
         <label for="amount">valor</label>
-        <input type="text" name="amount" id="amount" placeholder="0" required />
+        <input
+          type="text"
+          name="amount"
+          id="amount"
+          value="0,00"
+          inputmode="numeric"
+          required
+        />
 
-        <label for="currency">moeda</label>
-        <select name="currency" id="currency" required>
-          <option value="" disabled selected hidden>Selecione a moeda</option>
-          <option value="USD">Dólar Americano</option>
-          <option value="EUR">Euro</option>
-          <option value="GBP">Libra Esterlina</option>
-        </select>
+        <label for="currency-trigger">moeda</label>
+        <div class="currency-picker" id="currency-picker">
+          <button
+            type="button"
+            class="currency-trigger"
+            id="currency-trigger"
+            aria-controls="currency-options"
+            aria-expanded="false"
+          >
+            <span id="currency-label">Selecione a moeda</span>
+            <img src="./img/chevron-down.svg" alt="" />
+          </button>
+          <div
+            class="currency-options"
+            id="currency-options"
+            role="listbox"
+            aria-label="Moedas disponíveis"
+            hidden
+          >
+            <button type="button" class="currency-option" role="option" data-value="USD">USD <span>Dólar Americano</span></button>
+            <button type="button" class="currency-option" role="option" data-value="EUR">EUR <span>Euro</span></button>
+            <button type="button" class="currency-option" role="option" data-value="GBP">GBP <span>Libra Esterlina</span></button>
+            <button type="button" class="currency-option" role="option" data-value="JPY">JPY <span>Iene Japonês</span></button>
+            <button type="button" class="currency-option" role="option" data-value="CNY">CNY <span>Yuan Chinês</span></button>
+            <button type="button" class="currency-option" role="option" data-value="CHF">CHF <span>Franco Suíço</span></button>
+            <button type="button" class="currency-option" role="option" data-value="CAD">CAD <span>Dólar Canadense</span></button>
+            <button type="button" class="currency-option" role="option" data-value="AUD">AUD <span>Dólar Australiano</span></button>
+            <button type="button" class="currency-option" role="option" data-value="NZD">NZD <span>Dólar Neozelandês</span></button>
+            <button type="button" class="currency-option" role="option" data-value="HKD">HKD <span>Dólar de Hong Kong</span></button>
+            <button type="button" class="currency-option" role="option" data-value="SGD">SGD <span>Dólar de Singapura</span></button>
+            <button type="button" class="currency-option" role="option" data-value="INR">INR <span>Rupia Indiana</span></button>
+            <button type="button" class="currency-option" role="option" data-value="MXN">MXN <span>Peso Mexicano</span></button>
+            <button type="button" class="currency-option" role="option" data-value="ZAR">ZAR <span>Rand Sul-Africano</span></button>
+            <button type="button" class="currency-option" role="option" data-value="ARS">ARS <span>Peso Argentino</span></button>
+          </div>
+        </div>
+        <input type="hidden" name="currency" id="currency" />
 
         <button type="submit">Converter em reais</button>
       </form>
 
-      <footer>
-        <span id="description">US$ 1 = R$ 4,86</span>
-        <h1 id="result">486,00 Reais</h1>
+      <footer aria-live="polite">
+        <span id="description">Cotação de referência</span>
+        <h1 id="result">R$ 0,00</h1>
       </footer>
     </main>
 
