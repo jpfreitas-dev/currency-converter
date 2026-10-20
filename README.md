@@ -1,4 +1,4 @@
-# 💱 Conversor de Moedas
+# 💱 Convert - Conversor de Moedas
 
 Aplicação web para conversão de moedas com cotação de referência atualizada por API, desenvolvida com foco em uma experiência simples, rápida e responsiva.
 
