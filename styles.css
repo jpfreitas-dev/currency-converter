@@ -94,6 +94,7 @@ input:focus,
 .currency-picker {
   position: relative;
   z-index: 3;
+  width: 100%;
 }
 
 .currency-trigger {
@@ -103,6 +104,8 @@ input:focus,
   text-align: left;
   cursor: pointer;
   margin-top: 0;
+  align-self: stretch;
+  min-width: 100%;
 }
 
 .currency-trigger img {
